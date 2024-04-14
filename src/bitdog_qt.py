@@ -12,16 +12,6 @@ from cv_bridge import CvBridge
 import rospy
 import subprocess, pathlib
 
-class core(QThread): #roscore
-	def __init__(self):
-		super(core, self).__init__()
-		
-	def run(self):
-		try:
-			self.core = subprocess.Popen([("roscore")], shell = True)
-		except:
-			rospy.loginfo("roscore is already running")
-
 class hand_thread(QThread):
 	def __init__(self):
 		super(hand_thread, self).__init__()
@@ -672,8 +662,6 @@ class UIWidget(QtWidgets.QWidget):
 
 if __name__ == '__main__':
 	import sys
-	core = core()
-	core.start()
 	rospy.init_node('bitdog', anonymous=False, disable_signals=True)
 	app = QtWidgets.QApplication(sys.argv)
 	w = UIWidget()
