@@ -36,7 +36,6 @@ class HAND:
 		self.mp_hands = mp.solutions.hands
 		self.hands = self.mp_hands.Hands()
 		self.mp_draw = mp.solutions.drawing_utils
-		self.count = 0
 
 	def check(self, data): #받은 데이터(string)를 action_ls 리스트의 인덱스 번호와 비교 후 int로 리턴
 		for i in range(1,20): #
@@ -102,11 +101,6 @@ class HAND:
 
 	
 	def control(self, image): # image == /cam_pub topic
-		self.count += 1
-		if self.count >= 3:
-			return
-		self.count = 0
-		
 		image = self.bridge.compressed_imgmsg_to_cv2(image,"bgr8")
 		
 		results = self.hands.process(image)
