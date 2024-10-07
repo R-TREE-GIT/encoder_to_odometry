@@ -1,4 +1,0 @@
-<launch>
-    <node pkg="bitdog_ros" type="bitdog_qt.py" name="bitdog" output="screen">
-    </node>
-</launch>

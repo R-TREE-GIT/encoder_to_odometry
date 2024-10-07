@@ -1,0 +1,7 @@
+<launch>
+    <node pkg="encoder_to_odometry" type="main.py" name="encoder_to_odometry" output="screen">
+    	<param name = "ENCODER_PPR"                 value = "16384"/>
+    	<param name = "WHEEL_RADIUS"                 value = "0.206"/> 
+    	<param name = "WHEEL_LENGTH"                 value = "0.465"/> 
+    </node>
+</launch>
